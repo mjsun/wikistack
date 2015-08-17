@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="page-header">
+		<h1>{{doc.title}}</h1>
+	</div>
+	{% if doc.content %}
+	<div class="page_content">
+    	{{ doc.content|marked }}
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

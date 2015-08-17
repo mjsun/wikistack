@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="page-header">
+		<h1>BROWSE MY WIKISTACK</h1>
+	</div>
+	{% if docs.length > 0 %}
+    	<ul>
+    		{% for doc in docs %}
+      			<li>{{doc|page_link}}</li>
+    		{% endfor %}
+  		</ul>
+	{% else %}
+  		There are no pages. Why don't you <a href='/add'>add one</a>?
+	{% endif %}
+</div>
+{% endblock %}

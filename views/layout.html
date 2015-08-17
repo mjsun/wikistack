@@ -1,0 +1,25 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}WikiStack{% endblock %}</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+  	<nav class="navbar navbar-inverse">
+  		<div class="container-fluid">
+  			<a class="navbar-brand" href="/">WIKISTACK</a>
+  			<ul class="nav navbar-nav">
+  				<li><a href="/add">ADD PAGE</a></li>
+  			</ul>
+  		</div>
+    </nav>
+   {% block content %}{% endblock %}
+   <br />
+   <footer class="footer">
+      <div class="container">
+        <p class="text-muted">WikiStack, Fullstack Academy</p>
+      </div>
+    </footer>
+  </body>
+</html>
