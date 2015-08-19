@@ -4,11 +4,17 @@
 <div class="container">
 	<div class="page-header">
 		<h1>{{doc.title}}</h1>
+		<a href="/wiki/edit/{{doc.url_name}}" class="btn btn-primary">edit</a>
+		<a href="/similar/{{doc._id.toString()}}" class="btn btn-warning">similar</a>
 	</div>
 	{% if doc.content %}
 	<div class="page_content">
     	{{ doc.content|marked }}
 	</div>
 	{% endif %}
+    
+    {% for tag in doc.tags %}
+	  <a class="btn btn-info" href="/tag/{{tag}}">{{tag}}</a>
+    {% endfor %}
 </div>
 {% endblock %}

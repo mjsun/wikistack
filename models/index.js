@@ -10,6 +10,7 @@ var pageSchema = new mongoose.Schema({
   url_name: String,
   owner_id: String,
   content:  String,
+  tags:     Array,
   date:     { type: Date, default: Date.now },
   status:   Number
 });
@@ -17,6 +18,19 @@ var pageSchema = new mongoose.Schema({
 pageSchema.virtual('full_route').get(function () {
   return '/wiki/'+this.url_name;
 });
+
+pageSchema.statics.findByTag = function(tagArr){
+  return this.find({tags : {$in : tagArr}})
+};
+
+pageSchema.statics.findSimilar = function(id, callback){
+  var self = this;
+  this.findOne({_id: id}).then(function(doc){
+    return self.find({$and : [{tags : {$in : doc.tags}},{_id : {$ne : id}}]});
+  }).then(function(docs){
+    callback(docs);
+  })
+};
 
 var userSchema = new mongoose.Schema({
   name:  { first: String, last: String },

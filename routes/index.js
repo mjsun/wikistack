@@ -10,4 +10,22 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/tag/:tag', function(req, res) {
+  var tag = req.params.tag;
+  var page = models.Page;
+  page.findByTag([tag]).then(function(docs){
+  	res.render('index', { docs: docs});
+  });
+});
+
+
+router.get('/similar/:id', function(req, res) {
+  var id = req.params.id;
+  var page = models.Page;
+  page.findSimilar(id, function(docs){
+  	res.render('index', { docs: docs});
+  });
+});
+
+
 module.exports = router;

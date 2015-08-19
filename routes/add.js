@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var models = require('../models/');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -7,17 +8,19 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/submit', function(req, res){
-	var models = require('../models/');
+	
     var title = req.body['page-title'];
     var content = req.body['page-content'];
+    var tags = req.body['page-tags'].replace(/ /g, '').split(',');
     var url_name = title.replace(/ /g,'_');
-    console.log(url_name);
+    //console.log(url_name);
   // STUDENT ASSIGNMENT:
   // add definitions of the `title`, `content` and `url_name` variables here
-
-    var page = new models.Page({ 'title': title, 'content': content, 'url_name': url_name });
+    console.log(tags);
+    var page = new models.Page({ 'title': title, 'content': content, 'url_name': url_name, 'tags': tags });
     page.save();
-	res.redirect('/');
+	  res.redirect('/');
 });
+
 
 module.exports = router;
