@@ -6,6 +6,7 @@
 		<h1>{{doc.title}}</h1>
 		<a href="/wiki/edit/{{doc.url_name}}" class="btn btn-primary">edit</a>
 		<a href="/similar/{{doc._id.toString()}}" class="btn btn-warning">similar</a>
+		<a href="/delete/{{doc._id.toString()}}" class="btn btn-danger">delete</a>
 	</div>
 	{% if doc.content %}
 	<div class="page_content">

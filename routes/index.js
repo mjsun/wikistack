@@ -27,5 +27,14 @@ router.get('/similar/:id', function(req, res) {
   });
 });
 
+router.get('/delete/:id', function(req, res) {
+  var id = req.params.id;
+  var page = models.Page;
+  page.remove({_id: id}).then(function(docs){
+    return page.find();
+  }).then(function(docs){
+    res.render('index', { docs: docs});
+  });
+});
 
 module.exports = router;
