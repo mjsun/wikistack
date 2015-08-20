@@ -16,7 +16,7 @@ var pageSchema = new mongoose.Schema({
 });
 
 pageSchema.virtual('full_route').get(function () {
-  return '/wiki/'+this.url_name;
+  return '/wiki/'+this._id;
 });
 
 pageSchema.statics.findByTag = function(tagArr){

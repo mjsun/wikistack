@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="page-header">
 		<h1>{{doc.title}}</h1>
-		<a href="/wiki/edit/{{doc.url_name}}" class="btn btn-primary">edit</a>
+		<a href="/wiki/edit/{{doc._id.toString()}}" class="btn btn-primary">edit</a>
 		<a href="/similar/{{doc._id.toString()}}" class="btn btn-warning">similar</a>
 		<a href="/delete/{{doc._id.toString()}}" class="btn btn-danger">delete</a>
 	</div>

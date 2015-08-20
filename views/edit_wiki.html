@@ -5,7 +5,10 @@
 	<div class="page-header">
 		<h1>Edit {{doc.title}}</h1>
 	</div>
+	<!--
 	<form method="POST" action="/wiki/edit/{{doc.url_name}}">
+	-->
+	<form method="POST" action="/wiki/edit/{{doc._id.toString()}}">
 		<div class="form-group">
 			<label for="page-title">PAGE TITLE</label>
 			<input id="page-title" class="form-control" name="page-title" placeholder="Please type page title" value="{{doc.title}}">
